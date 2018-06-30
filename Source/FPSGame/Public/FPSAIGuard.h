@@ -9,25 +9,28 @@
 UCLASS()
 class FPSGAME_API AFPSAIGuard : public ACharacter
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
-	AFPSAIGuard();
+    // Sets default values for this character's properties
+    AFPSAIGuard();
 
 protected:
-	// Called when the game starts or when spawned
+    // Called when the game starts or when spawned
     void BeginPlay() override;
-    
-public:    
 
-	// Called every frame
-    void Tick(float DeltaTime) override;	
-	
+public:
+
+    // Called every frame
+    void Tick(float DeltaTime) override;
+
 private:
     UPROPERTY(VisibleAnywhere, Category = "Components")
-    class UPawnSensingComponent *PawnSensingComp;
+    class UPawnSensingComponent* PawnSensingComp;
 
     UFUNCTION()
-    void OnPawnSeen(APawn *Pawn);
+    void OnPawnSeen(APawn* Pawn);
+
+    UFUNCTION()
+    void OnNoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume);
 };
