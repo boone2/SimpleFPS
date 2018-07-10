@@ -25,6 +25,9 @@ public:
     void Tick(float DeltaTime) override;
 
 private:
+    FRotator OriginalRotation;
+    FTimerHandle TimerHandle_ResetRotation;
+
     UPROPERTY(VisibleAnywhere, Category = "Components")
     class UPawnSensingComponent* PawnSensingComp;
 
@@ -33,4 +36,7 @@ private:
 
     UFUNCTION()
     void OnNoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume);
+
+    UFUNCTION()
+    void ResetRotation();
 };

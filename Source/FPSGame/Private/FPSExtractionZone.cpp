@@ -6,6 +6,7 @@
 #include "FPSCharacter.h"
 #include "FPSGameMode.h"
 #include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
 
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone()

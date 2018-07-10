@@ -34,7 +34,7 @@ void AABlackHole::Tick(float DeltaTime)
 	{
 		if (!Component->IsSimulatingPhysics())
 			continue;
-		Component->AddRadialForce(GetActorLocation(), SphereComp->GetScaledSphereRadius(), -2000, ERadialImpulseFalloff::RIF_Constant, true);
+		Component->AddRadialForce(GetActorLocation(), SphereComp->GetScaledSphereRadius(), -2000, RIF_Constant, true);
 	}
 }
 

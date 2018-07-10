@@ -27,9 +27,9 @@ void AFPSLaunchPad::OverlapHandle(UPrimitiveComponent* OverlappedComponent, AAct
 {
 	FRotator LaunchRotation = GetActorRotation();
 	LaunchRotation.Pitch += LaunchPitch;
-	FVector LaunchVelocity = LaunchRotation.Vector() * LaunchStrength;
+    const FVector LaunchVelocity = LaunchRotation.Vector() * LaunchStrength;
 
-	ACharacter *OtherCharacter = Cast<ACharacter>(OtherActor);
+    auto OtherCharacter = Cast<ACharacter>(OtherActor);
 	if (OtherCharacter)
 	{
 		OtherCharacter->LaunchCharacter(LaunchVelocity, true, true);
