@@ -6,6 +6,14 @@
 #include "GameFramework/Character.h"
 #include "FPSAIGuard.generated.h"
 
+UENUM(BlueprintType)
+enum class EAIState : uint8
+{
+    Idle,
+    Suspicious,
+    Alerted
+};
+
 UCLASS()
 class FPSGAME_API AFPSAIGuard : public ACharacter
 {
@@ -39,4 +47,14 @@ private:
 
     UFUNCTION()
     void ResetRotation();
+
+    // AIState
+private:
+    EAIState GuardState;
+
+    void SetGuardState(EAIState NewState);
+
+protected:
+    UFUNCTION(BlueprintImplementableEvent, Category = "AI")
+    void OnStateChanged(EAIState NewState);
 };
